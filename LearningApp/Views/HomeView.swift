@@ -8,9 +8,26 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var model:ContentModel
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            VStack(alignment: .leading) {
+                Text("What do you want to do today?")
+                    .padding(.leading, 20)
+                ScrollView {
+                    LazyVStack {
+                        ForEach(model.modules) { module in
+                            HomeViewRow(title: "Learn \(module.category)", image: module.content.image, description: module.content.description, count: "\(module.content.lessons.count) Lessons", time: module.content.time)
+                            
+                            HomeViewRow(title: "\(module.category) Test", image: module.test.image, description: module.test.description, count: "\(module.test.questions.count) Questions", time: module.test.time)
+                        }
+                    }
+                    .padding()
+                }
+            }
+            .navigationTitle("Get Started")
+        }
     }
 }
 
