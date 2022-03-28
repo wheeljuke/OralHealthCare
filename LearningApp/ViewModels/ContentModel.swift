@@ -9,7 +9,12 @@ import Foundation
 
 class ContentModel: ObservableObject {
     
+    // List of modules
     @Published var modules = [Module]()
+    
+    // Current module
+    @Published var currentModule: Module?
+    var currentModuleIndex = 0
     
     var styleData: Data?
     
@@ -18,6 +23,7 @@ class ContentModel: ObservableObject {
         getLocalData()
     }
     
+    // MARK: - Data methods
     func getLocalData() {
         
         // MARK: Parse the jsonData
@@ -59,6 +65,22 @@ class ContentModel: ObservableObject {
             
             print("Error fetching the htmlData from URL")
         }
+    }
+    
+    // MARK: - Module navigation methods
+    func beginModule(id: Int) {
+        
+        // Find the index for this module id
+        for index in 0..<modules.count {
+            if modules[index].id == id {
+                // Found the matching module
+                currentModuleIndex = id
+                break
+            }
+        }
+        
+        // Set the current module
+        currentModule = modules[currentModuleIndex]
     }
 }
 

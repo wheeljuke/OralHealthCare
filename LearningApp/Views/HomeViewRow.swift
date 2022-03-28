@@ -36,11 +36,14 @@ struct HomeViewRow: View {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     
-                    Text(title)
-                        .bold()
+                    VStack(alignment: .leading) {
+                        Text(title)
+                            .bold()
+                        
+                        Text(description)
+                            .font(.caption)
+                    }
                     
-                    Text(description)
-                        .font(.caption)
                     
                     HStack {
                         
