@@ -38,15 +38,16 @@ struct ContentViewRow: View {
                     
                 }
             }
-            .padding(.bottom, 10)
+            .padding(.horizontal, 10)
             
         }
+        
     }
 }
 
 struct ContentViewRow_Previews: PreviewProvider {
     static var previews: some View {
-        ContentViewRow()
+        ContentViewRow(index: 0)
             .environmentObject(ContentModel())
     }
 }
