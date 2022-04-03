@@ -26,6 +26,7 @@ struct ContentDetailView: View {
             }
             
             // Description
+            CodeTextView()
             
             // Next lesson button
             if model.hasNextLesson() {

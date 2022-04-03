@@ -20,6 +20,8 @@ class ContentModel: ObservableObject {
     @Published var currentLesson: Lesson?
     var currentLessonIndex = 0
     
+    // Current lesson explanation
+    @Published var lessonDescription = NSAttributedString()
     var styleData: Data?
     
     init() {
@@ -98,19 +100,7 @@ class ContentModel: ObservableObject {
         }
         // Set the current lesson
         currentLesson = currentModule!.content.lessons[currentLessonIndex]
-    }
-    
-    func hasNextLesson() -> Bool {
-        
-        /*
-        if currentLessonIndex + 1 < currentModule!.content.lessons.count {
-            return true
-        }
-        else {
-            return false
-        }
-        */
-        return currentLessonIndex + 1 < currentModule!.content.lessons.count
+        lessonDescription = addStyling(htmlString: currentLesson!.explanation)
     }
     
     func nextLesson() {
@@ -123,11 +113,65 @@ class ContentModel: ObservableObject {
             
             // Set the current lesson property
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
+            lessonDescription = addStyling(htmlString: currentLesson!.explanation)
         }
         else {
             currentLessonIndex = 0
             currentLesson = nil
+            lessonDescription = NSAttributedString()
         }
     }
+    
+    func hasNextLesson() -> Bool {
+        
+        /*
+         if currentLessonIndex + 1 < currentModule!.content.lessons.count {
+         return true
+         }
+         else {
+         return false
+         }
+         */
+        return currentLessonIndex + 1 < currentModule!.content.lessons.count
+    }
+    
+    private func addStyling(htmlString: String) -> NSAttributedString {
+        
+        var resultString = NSAttributedString()
+        var data = Data()
+        
+        // Add the styling data
+        if styleData != nil {
+            data.append(styleData!)
+        }
+        
+        // Add the html data
+        data.append(Data(htmlString.utf8))
+        
+        // Converting the html to NSAttributedString
+        do {
+            let attributedString = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+            
+            resultString = attributedString
+            
+        }
+        catch {
+            print("couldn't turn html into AttributedString")
+        }
+        
+        /*
+         Other Method :
+         
+         if let attributedString = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+            resultString = attributedString
+         }
+        
+         this doesn't catch the error 
+         */
+        
+        return resultString
+    }
+    
+    
 }
 
