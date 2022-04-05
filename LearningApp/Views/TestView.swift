@@ -10,12 +10,17 @@ import SwiftUI
 struct TestView: View {
     
     @EnvironmentObject var model: ContentModel
+    
+    // MARK: - Variables that need to be reset every question
     @State var selectedAnswerIndex:Int?
     @State var submitted = false
+    
+    // MARK: -
     @State var numQuestionCorrect = 0
     
     var body: some View {
         
+        // MARK: - Question title and description
         if model.currentQuestion != nil {
             VStack(alignment: .leading) {
                 
@@ -24,22 +29,18 @@ struct TestView: View {
                 
                 // Question
                 CodeTextView()
-                
-                // Answers
-                
-                // Buttons
-                
             }
             .navigationTitle("\(model.currentModule?.category ?? "") Test")
             .padding(.horizontal)
             
-            // MARK: Answers selection
+            // MARK: - Answers selection
             ScrollView {
                 
                 VStack {
                     
-                    ForEach(0..<model.currentQuestion!.answers.count) { index in
+                    ForEach(0..<model.currentQuestion!.answers.count, id: \.self) { index in
                         
+                        // MARK: Button for the answers
                         Button {
                             
                             selectedAnswerIndex = index
@@ -87,16 +88,35 @@ struct TestView: View {
                 .padding()
                 .accentColor(.black)
                 
+                
+            }
+            
+            VStack {
                 // MARK: Submit Button
                 Button {
                     
-                    // Mark the state to be submitted
-                    submitted = true
-                    
-                    //Check the answers and record the number of correct questions
-                    if selectedAnswerIndex == model.currentQuestion!.correctIndex {
-                        numQuestionCorrect += 1
+                    // Reset the question for the next Question
+                    if submitted == true {
+                        
+                        // Advance to the next question
+                        model.nextQuestion()
+                        
+                        // Reset properties
+                        selectedAnswerIndex = nil
+                        submitted = false
                     }
+                    
+                    // Submit the answers
+                    else {
+                        // Mark the state to be submitted
+                        submitted = true
+                        
+                        //Check the answers and record the number of correct questions
+                        if selectedAnswerIndex == model.currentQuestion!.correctIndex {
+                            numQuestionCorrect += 1
+                        }
+                    }
+                    
                     
                 } label: {
                     
@@ -104,19 +124,39 @@ struct TestView: View {
                         
                         RectangleCard(color: .green)
                         
-                        Text("Submit")
-                            .bold()
-                            .foregroundColor(.white)
+                            Text(buttonText
+                            )
+                                .bold()
+                                .foregroundColor(.white)
                     }
                     .padding()
                 }
-                // Make sure that when no answers were selected it can't be submitted
-                .disabled(selectedAnswerIndex == nil || submitted == true)
             }
         }
         
         else {
             ProgressView()
+        }
+    }
+    
+    var buttonText: String {
+        // Check if answer has been submitted
+        if submitted == true {
+            
+            if model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count {
+                
+                return "Finish"
+            }
+            
+            else {
+                
+                return "Next Question"
+            }
+            
+        }
+        else {
+            
+            return "Submit"
         }
     }
 }
