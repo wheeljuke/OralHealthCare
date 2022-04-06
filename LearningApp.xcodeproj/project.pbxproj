@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55052AC327F9E0EA003D2179 /* RectangleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55052AC227F9E0EA003D2179 /* RectangleCard.swift */; };
+		555F833A27FE38B3006BDB22 /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F833927FE38B3006BDB22 /* TestResultView.swift */; };
 		556C274A27EBCC53002BFF0B /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C274927EBCC53002BFF0B /* LearningApp.swift */; };
 		556C274C27EBCC53002BFF0B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C274B27EBCC53002BFF0B /* HomeView.swift */; };
 		556C274E27EBCC54002BFF0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 556C274D27EBCC54002BFF0B /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		55052AC227F9E0EA003D2179 /* RectangleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCard.swift; sourceTree = "<group>"; };
+		555F833927FE38B3006BDB22 /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
 		556C274627EBCC53002BFF0B /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		556C274927EBCC53002BFF0B /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		556C274B27EBCC53002BFF0B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				5585DA3527F172EA004DDD99 /* ContentViewRow.swift */,
 				55D62F6527F2747A00571B75 /* ContentDetailView.swift */,
 				557C0C5127FA5B5800EC4580 /* TestView.swift */,
+				555F833927FE38B3006BDB22 /* TestResultView.swift */,
 				55D62F8927F7EACD00571B75 /* CodeTextView.swift */,
 				55052AC227F9E0EA003D2179 /* RectangleCard.swift */,
 			);
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				557C0C5227FA5B5800EC4580 /* TestView.swift in Sources */,
+				555F833A27FE38B3006BDB22 /* TestResultView.swift in Sources */,
 				556C274C27EBCC53002BFF0B /* HomeView.swift in Sources */,
 				5585DA3227ED2CA5004DDD99 /* HomeViewRow.swift in Sources */,
 				5585DA3427F16A19004DDD99 /* ContentView.swift in Sources */,

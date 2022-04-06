@@ -108,12 +108,16 @@ struct TestView: View {
                     
                     // Submit the answers
                     else {
-                        // Mark the state to be submitted
-                        submitted = true
                         
-                        //Check the answers and record the number of correct questions
-                        if selectedAnswerIndex == model.currentQuestion!.correctIndex {
-                            numQuestionCorrect += 1
+                        if selectedAnswerIndex != nil {
+                            
+                            // Mark the state to be submitted
+                            submitted = true
+                            
+                            //Check the answers and record the number of correct questions
+                            if selectedAnswerIndex == model.currentQuestion!.correctIndex {
+                                numQuestionCorrect += 1
+                            }
                         }
                     }
                     
@@ -133,8 +137,12 @@ struct TestView: View {
                 }
             }
         }
-        
+        else if model.currentQuestion == nil {
+            
+            TestResultView(numQuestionCorrect: numQuestionCorrect)
+        }
         else {
+            
             ProgressView()
         }
     }
