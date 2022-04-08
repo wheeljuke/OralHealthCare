@@ -35,7 +35,10 @@ class ContentModel: ObservableObject {
     
     init() {
         
+        // Parse local included json data
         getLocalData()
+        // Download remote json file and parse data
+        getRemoteData()
     }
     
     // MARK: - Data methods
@@ -80,6 +83,56 @@ class ContentModel: ObservableObject {
             
             print("Error fetching the htmlData from URL")
         }
+    }
+    
+    func getRemoteData() {
+        
+        // String path
+        let urlString = "https://wheeljuke.github.io/LearningApp-data/data2.json"
+        
+        // Create url object
+        let url = URL(string: urlString)
+        
+        guard url != nil else {
+            // Couldn't return url
+            return
+        }
+        
+        // Create a url request object (using the URLRequest we can specify more attributes)
+        let request = URLRequest(url: url!)
+        
+        // Get the session and kick off the task
+        let session = URLSession.shared
+        
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            
+            // Check if there's an error
+            guard error == nil else {
+                // There is a error
+                return
+            }
+            
+            // Creating the JSONDecoder
+            let decoder = JSONDecoder()
+            
+            do {
+                
+                // Decoding the data
+                let modules = try decoder.decode([Module].self, from: data!)
+                
+                // Append the modules from remote json to the module
+                self.modules += modules
+            }
+            catch {
+                
+                // Print out the error
+                print(error)
+            }
+            // Handle the response
+        }
+        
+        // Kick off the data task
+        dataTask.resume()
     }
     
     // MARK: - Module navigation methods
@@ -180,6 +233,7 @@ class ContentModel: ObservableObject {
             currentQuestion = nil
         }
     }
+    
     private func addStyling(htmlString: String) -> NSAttributedString {
         
         var resultString = NSAttributedString()
@@ -216,7 +270,6 @@ class ContentModel: ObservableObject {
         
         return resultString
     }
-    
     
 }
 
