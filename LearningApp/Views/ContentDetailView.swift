@@ -14,54 +14,62 @@ struct ContentDetailView: View {
     
     var body: some View {
         
-        let lesson = model.currentLesson
-        
-        let url = URL(string: Constants.videoHostURL + (lesson?.video ?? ""))
-        
-        VStack {
-            // only show video if we get a valid url
-            if url != nil {
-                VideoPlayer(player: AVPlayer(url: url!))
-                    .cornerRadius(10)
-            }
+        if model.currentModule != nil {
             
-            // Description
-            CodeTextView()
+            let lesson = model.currentLesson
             
-            // Next lesson button
-            if model.hasNextLesson() {
+            let url = URL(string: Constants.videoHostURL + (lesson?.video ?? ""))
+            
+            VStack {
+                // only show video if we get a valid url
+                if url != nil {
+                    VideoPlayer(player: AVPlayer(url: url!))
+                        .cornerRadius(10)
+                }
                 
-                Button {
-                    //Advance the lesson
-                    model.nextLesson()
+                // Description
+                CodeTextView()
+                
+                // Next lesson button
+                if model.hasNextLesson() {
                     
-                } label: {
-                    ZStack {
-                        RectangleCard(color: Color.green, height: 48)
-                        Text("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)")
-                            .bold()
-                            .foregroundColor(.white)
+                    Button {
+                        //Advance the lesson
+                        model.nextLesson()
+                        
+                    } label: {
+                        ZStack {
+                            RectangleCard(color: Color.green, height: 48)
+                            Text("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)")
+                                .bold()
+                                .foregroundColor(.white)
+                        }
                     }
-                }
 
-            }
-            else {
-                Button {
-                    // Send the user back to HomeView
-                    model.currentContentSelected = nil  
-                    
-                } label: {
-                    ZStack {
-                        RectangleCard(color: Color.green, height: 48)
-                        Text("Complete")
-                            .bold()
-                            .foregroundColor(.white)
+                }
+                else {
+                    Button {
+                        // Send the user back to HomeView
+                        model.currentContentSelected = nil
+                        
+                    } label: {
+                        ZStack {
+                            RectangleCard(color: Color.green, height: 48)
+                            Text("Complete")
+                                .bold()
+                                .foregroundColor(.white)
+                        }
                     }
                 }
             }
-            
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
+        
+        else {
+            ProgressView()
+        }
+        
+        
     }
 }
 

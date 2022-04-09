@@ -15,33 +15,39 @@ struct ContentViewRow: View {
     
     var body: some View {
         
-        let lesson = model.currentModule!.content.lessons[index]
-        
-        ZStack(alignment: .leading) {
+        if model.currentModule != nil {
             
-            Rectangle()
-                .foregroundColor(.white)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-                .frame(height: 66)
+            let lesson = model.currentModule!.content.lessons[index]
             
-            HStack(spacing: 30) {
+            ZStack(alignment: .leading) {
                 
-                Text(String(index + 1))
+                Rectangle()
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
+                    .frame(height: 66)
                 
-                VStack(alignment: .leading) {
+                HStack(spacing: 30) {
                     
-                    Text(lesson.title)
-                        .bold()
-                    Text(lesson.duration)
-                        .bold()
+                    Text(String(index + 1))
                     
+                    VStack(alignment: .leading) {
+                        
+                        Text(lesson.title)
+                            .bold()
+                        Text(lesson.duration)
+                            .bold()
+                        
+                    }
                 }
+                .padding(.horizontal, 10)
+                
             }
-            .padding(.horizontal, 10)
-            
         }
         
+        else {
+            ProgressView()
+        }
     }
 }
 
