@@ -60,7 +60,7 @@ struct HomeView: View {
                     .accentColor(.black)
                 }
             }
-            .navigationTitle("Get Started")`
+            .navigationTitle("Get Started")
             .onChange(of: model.currentContentSelected) { newValue in
                 if newValue == nil {
                     model.currentModule = nil
