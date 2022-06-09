@@ -50,3 +50,10 @@ struct Question: Decodable, Identifiable {
     var answers: [String]
     
 }
+
+struct Record: Identifiable {
+    
+    var id: UUID
+    var date: Date
+    var duration: Double
+}

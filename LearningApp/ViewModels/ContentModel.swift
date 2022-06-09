@@ -26,19 +26,24 @@ class ContentModel: ObservableObject {
     var currentQuestionIndex = 0
     
     // Current lesson explanation
-    @Published var codeText = NSAttributedString()
+    //@Published var codeText = NSAttributedString()
+    @Published var description = String()
     var styleData: Data?
     
     // Current selected content and test
     @Published var currentContentSelected: Int?
     @Published var currentTestSelected: Int?
     
+    // Calendar Variables
+    @Published var records = [Record]()
+    
+    
     init() {
         
         // Parse local included json data
         getLocalData()
         // Download remote json file and parse data
-        getRemoteData()
+        // getRemoteData()
     }
     
     // MARK: - Data methods
@@ -70,6 +75,7 @@ class ContentModel: ObservableObject {
         }
         
         // MARK: Parse the StyleData
+        /*
         let styleUrl = Bundle.main.url(forResource: "style", withExtension: "html")
         
         do {
@@ -83,6 +89,7 @@ class ContentModel: ObservableObject {
             
             print("Error fetching the htmlData from URL")
         }
+         */
     }
     
     func getRemoteData() {
@@ -162,7 +169,8 @@ class ContentModel: ObservableObject {
         }
         // Set the current lesson
         currentLesson = currentModule!.content.lessons[currentLessonIndex]
-        codeText = addStyling(htmlString: currentLesson!.explanation)
+        //codeText = addStyling(htmlString: currentLesson!.explanation)
+        description = currentLesson!.explanation
     }
     
     func nextLesson() {
@@ -175,12 +183,13 @@ class ContentModel: ObservableObject {
             
             // Set the current lesson property
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
-            codeText = addStyling(htmlString: currentLesson!.explanation)
+            //codeText = addStyling(htmlString: currentLesson!.explanation)
+            description = currentLesson!.explanation
         }
         else {
             currentLessonIndex = 0
             currentLesson = nil
-            codeText = NSAttributedString()
+            //codeText = NSAttributedString()
         }
     }
     
@@ -210,7 +219,8 @@ class ContentModel: ObservableObject {
             currentQuestion = currentModule!.test.questions[currentQuestionIndex]
             
             // Set the Question Content
-            codeText = addStyling(htmlString: currentQuestion!.content)
+            //codeText = addStyling(htmlString: currentQuestion!.content)
+            description = currentQuestion!.content
         }
     }
     
@@ -223,7 +233,8 @@ class ContentModel: ObservableObject {
         if currentQuestionIndex < currentModule!.test.questions.count {
             
             currentQuestion = currentModule!.test.questions[currentQuestionIndex]
-            codeText = addStyling(htmlString: currentQuestion!.content)
+            //codeText = addStyling(htmlString: currentQuestion!.content)
+            description = currentQuestion!.content
         }
         
         // If not, then reset the properties

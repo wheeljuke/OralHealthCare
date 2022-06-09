@@ -8,7 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		55052AC327F9E0EA003D2179 /* RectangleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55052AC227F9E0EA003D2179 /* RectangleCard.swift */; };
+		550751C3283F934000A96DCD /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550751C2283F934000A96DCD /* CalendarDetailView.swift */; };
+		550751C5283F96BC00A96DCD /* CalendarCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550751C4283F96BC00A96DCD /* CalendarCard.swift */; };
+		553A7119283B624B0091C22D /* StartUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A7118283B624B0091C22D /* StartUpView.swift */; };
+		553A711B283B62FC0091C22D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A711A283B62FC0091C22D /* CalendarView.swift */; };
+		553A711D283B630C0091C22D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A711C283B630C0091C22D /* MapView.swift */; };
+		55566446283D00DE00BB7116 /* YTVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55566445283D00DE00BB7116 /* YTVideoView.swift */; };
 		555F833A27FE38B3006BDB22 /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F833927FE38B3006BDB22 /* TestResultView.swift */; };
+		55687063284F203200385D48 /* CalendarDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55687062284F203200385D48 /* CalendarDetailCard.swift */; };
+		5568706528507E9E00385D48 /* MapKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5568706428507E9E00385D48 /* MapKitModel.swift */; };
 		556C274A27EBCC53002BFF0B /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C274927EBCC53002BFF0B /* LearningApp.swift */; };
 		556C274C27EBCC53002BFF0B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C274B27EBCC53002BFF0B /* HomeView.swift */; };
 		556C274E27EBCC54002BFF0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 556C274D27EBCC54002BFF0B /* Assets.xcassets */; };
@@ -29,7 +37,15 @@
 
 /* Begin PBXFileReference section */
 		55052AC227F9E0EA003D2179 /* RectangleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCard.swift; sourceTree = "<group>"; };
+		550751C2283F934000A96DCD /* CalendarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailView.swift; sourceTree = "<group>"; };
+		550751C4283F96BC00A96DCD /* CalendarCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCard.swift; sourceTree = "<group>"; };
+		553A7118283B624B0091C22D /* StartUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpView.swift; sourceTree = "<group>"; };
+		553A711A283B62FC0091C22D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		553A711C283B630C0091C22D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		55566445283D00DE00BB7116 /* YTVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTVideoView.swift; sourceTree = "<group>"; };
 		555F833927FE38B3006BDB22 /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
+		55687062284F203200385D48 /* CalendarDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailCard.swift; sourceTree = "<group>"; };
+		5568706428507E9E00385D48 /* MapKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitModel.swift; sourceTree = "<group>"; };
 		556C274627EBCC53002BFF0B /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		556C274927EBCC53002BFF0B /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		556C274B27EBCC53002BFF0B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -61,6 +77,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		553A711E283B64430091C22D /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				556C274B27EBCC53002BFF0B /* HomeView.swift */,
+				5585DA3127ED2CA5004DDD99 /* HomeViewRow.swift */,
+				5585DA3327F16A19004DDD99 /* ContentView.swift */,
+				5585DA3527F172EA004DDD99 /* ContentViewRow.swift */,
+				55D62F6527F2747A00571B75 /* ContentDetailView.swift */,
+				557C0C5127FA5B5800EC4580 /* TestView.swift */,
+				555F833927FE38B3006BDB22 /* TestResultView.swift */,
+				55D62F8927F7EACD00571B75 /* CodeTextView.swift */,
+				55052AC227F9E0EA003D2179 /* RectangleCard.swift */,
+				55566445283D00DE00BB7116 /* YTVideoView.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		553A711F283B645B0091C22D /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				553A711A283B62FC0091C22D /* CalendarView.swift */,
+				550751C2283F934000A96DCD /* CalendarDetailView.swift */,
+				55687062284F203200385D48 /* CalendarDetailCard.swift */,
+				550751C4283F96BC00A96DCD /* CalendarCard.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		553A7120283B646A0091C22D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				553A711C283B630C0091C22D /* MapView.swift */,
+				5568706428507E9E00385D48 /* MapKitModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		556C273D27EBCC53002BFF0B = {
 			isa = PBXGroup;
 			children = (
@@ -104,15 +157,10 @@
 		556C275727EBCCDE002BFF0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				556C274B27EBCC53002BFF0B /* HomeView.swift */,
-				5585DA3127ED2CA5004DDD99 /* HomeViewRow.swift */,
-				5585DA3327F16A19004DDD99 /* ContentView.swift */,
-				5585DA3527F172EA004DDD99 /* ContentViewRow.swift */,
-				55D62F6527F2747A00571B75 /* ContentDetailView.swift */,
-				557C0C5127FA5B5800EC4580 /* TestView.swift */,
-				555F833927FE38B3006BDB22 /* TestResultView.swift */,
-				55D62F8927F7EACD00571B75 /* CodeTextView.swift */,
-				55052AC227F9E0EA003D2179 /* RectangleCard.swift */,
+				553A7118283B624B0091C22D /* StartUpView.swift */,
+				553A7120283B646A0091C22D /* Map */,
+				553A711F283B645B0091C22D /* Calendar */,
+				553A711E283B64430091C22D /* Course */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,17 +279,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				557C0C5227FA5B5800EC4580 /* TestView.swift in Sources */,
+				553A711D283B630C0091C22D /* MapView.swift in Sources */,
 				555F833A27FE38B3006BDB22 /* TestResultView.swift in Sources */,
 				556C274C27EBCC53002BFF0B /* HomeView.swift in Sources */,
+				5568706528507E9E00385D48 /* MapKitModel.swift in Sources */,
 				5585DA3227ED2CA5004DDD99 /* HomeViewRow.swift in Sources */,
 				5585DA3427F16A19004DDD99 /* ContentView.swift in Sources */,
+				553A711B283B62FC0091C22D /* CalendarView.swift in Sources */,
 				55D62F6627F2747A00571B75 /* ContentDetailView.swift in Sources */,
 				556C276327EBD1F1002BFF0B /* Module.swift in Sources */,
+				55566446283D00DE00BB7116 /* YTVideoView.swift in Sources */,
+				55687063284F203200385D48 /* CalendarDetailCard.swift in Sources */,
 				5585DA3627F172EA004DDD99 /* ContentViewRow.swift in Sources */,
+				550751C3283F934000A96DCD /* CalendarDetailView.swift in Sources */,
+				550751C5283F96BC00A96DCD /* CalendarCard.swift in Sources */,
 				55D62F8A27F7EACD00571B75 /* CodeTextView.swift in Sources */,
 				556C274A27EBCC53002BFF0B /* LearningApp.swift in Sources */,
 				556C275D27EBCD4A002BFF0B /* ContentModel.swift in Sources */,
 				55052AC327F9E0EA003D2179 /* RectangleCard.swift in Sources */,
+				553A7119283B624B0091C22D /* StartUpView.swift in Sources */,
 				55D62F6B27F2781D00571B75 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +432,7 @@
 				DEVELOPMENT_TEAM = TZB7FB6SGD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "要使用牙醫地圖找尋您身邊的牙醫診所，我們需要你的定位";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -405,6 +462,7 @@
 				DEVELOPMENT_TEAM = TZB7FB6SGD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "要使用牙醫地圖找尋您身邊的牙醫診所，我們需要你的定位";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

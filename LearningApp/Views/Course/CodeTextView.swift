@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/*
 struct CodeTextView: UIViewRepresentable {
     
     @EnvironmentObject var model: ContentModel
@@ -34,3 +35,4 @@ struct CodeTextView_Previews: PreviewProvider {
         CodeTextView()
     }
 }
+*/

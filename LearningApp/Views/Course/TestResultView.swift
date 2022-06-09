@@ -26,7 +26,7 @@ struct TestResultView: View {
                 
                 Spacer()
                 
-                Text("You got \(numQuestionCorrect) out of \(model.currentModule!.test.questions.count) questions")
+                Text("你答對\(model.currentModule!.test.questions.count)中的\(numQuestionCorrect)題")
                 
                 Spacer()
                 
@@ -41,7 +41,7 @@ struct TestResultView: View {
                         
                         RectangleCard(color: .green)
                         
-                        Text("Complete")
+                        Text("完成")
                             .bold()
                             .foregroundColor(.white)
                     }
@@ -66,16 +66,16 @@ struct TestResultView: View {
         let percentage = Double(numQuestionCorrect) / Double(model.currentModule!.test.questions.count)
         
         if percentage == 1.0 {
-            return "WOW you've got 100%"
+            return "哇！你超棒！你全對！"
         }
         else if percentage > 0.5 {
-            return "Awesome"
+            return "讚讚"
         }
         else if percentage > 0.2 {
-            return "Doing great"
+            return "很不錯呦"
         }
         else {
-            return "Keep learning"
+            return "繼續學習"
         }
     }
 }

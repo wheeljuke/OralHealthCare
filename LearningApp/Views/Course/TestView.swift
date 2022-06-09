@@ -22,15 +22,16 @@ struct TestView: View {
         
         // MARK: - Question title and description
         if model.currentQuestion != nil {
-            VStack(alignment: .leading) {
+            VStack(alignment: .center, spacing: 5) {
                 
                 // Question Number
-                Text("Question \(model.currentQuestionIndex + 1) of \(model.currentModule?.test.questions.count ?? 0)")
-                
+                Text("第 \(model.currentQuestionIndex + 1) / \(model.currentModule?.test.questions.count ?? 0) 題")
+
                 // Question
-                CodeTextView()
+                //CodeTextView()
+                Text(model.currentQuestion!.content)
             }
-            .navigationTitle("\(model.currentModule?.category ?? "") Test")
+            .navigationTitle("\(model.currentModule?.category ?? "")小挑戰")
             .padding(.horizontal)
             
             // MARK: - Answers selection
@@ -153,18 +154,18 @@ struct TestView: View {
             
             if model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count {
                 
-                return "Finish"
+                return "結束"
             }
             
             else {
                 
-                return "Next Question"
+                return "下一題"
             }
             
         }
         else {
             
-            return "Submit"
+            return "送出答案"
         }
     }
 }
